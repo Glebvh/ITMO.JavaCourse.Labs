@@ -1,2 +1,4 @@
 # Project exclude paths
 /out/
+/ITMO.JavaCourse.Labs.iml
+/.idea/
