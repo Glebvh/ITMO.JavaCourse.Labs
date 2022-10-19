@@ -13,16 +13,18 @@ public class SimpleCar {
     private String name;
     private int weight;
 
-    void Output(){
+    void Output() {
         System.out.println("Color: " + color + "," + "Name: " + name + "," + "Weight: " + weight);
     }
 
-    public SimpleCar(){
+    public SimpleCar() {
     }
-    public SimpleCar(String color){
+
+    public SimpleCar(String color) {
         this.color = color;
     }
-    public SimpleCar(String color, int weight){
+
+    public SimpleCar(String color, int weight) {
         this.color = color;
         this.weight = weight;
     }

@@ -9,7 +9,7 @@ public class Study {
 
     private final String course;
 
-    public Study (String course){
+    public Study(String course) {
         this.course = course;
     }
 

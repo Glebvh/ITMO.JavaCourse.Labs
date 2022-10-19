@@ -12,6 +12,8 @@
 
         package JavaLab3.part3;
 
+import java.util.Scanner;
+
 public class House {
     public int floors;
     public int year;
@@ -26,8 +28,14 @@ public class House {
         System.out.println("Number of floors: " + floors + ", Date: " + year + ", Name: " + name + ", Age: " + Age());
     }
     public int Age(){
-        int age = 2021 - year;
+        int age = thisAge() - year;
         return age;
+    }
+
+    public int thisAge () {
+        Scanner in = new Scanner(System.in);
+        int thisAge = in.nextInt();
+        return thisAge;
     }
 
 }
