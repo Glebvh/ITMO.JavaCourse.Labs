@@ -30,13 +30,13 @@ public class JavaLab1 {
         System.out.println("Я\nхорошо\nзнаю\nJava");
 
         //2
-        double x = ( 46 + 10 ) * ( 10 / 3 );
+        double x = ( 46 + 10 ) * ( 10 / 3d );
         int y = 29*4*-15;
         System.out.println("First result is "+ x + ", Second is " + y);
 
         //3
-        int number = 10500;
-        double result = number/10/10;
+        int number = 105;
+        double result = number/10d/10;
         System.out.println(result);
 
         //4
@@ -45,16 +45,16 @@ public class JavaLab1 {
 
         //5
         Scanner in = new Scanner(System.in);
-        int c = in.nextInt();
-        int d = in.nextInt();
-        int f = in.nextInt();
-        System.out.println(c);
-        System.out.println(d);
-        System.out.println(f);
+//        int c = in.nextInt();
+//        int d = in.nextInt();
+//        int f = in.nextInt();
+//        System.out.println(c);
+//        System.out.println(d);
+//        System.out.println(f);
 
         //6
-        int j = in.nextInt();
-        String res = j % 2 != 0 ? "Нечетное" : (j < 100) ? "Четное" : "Недопустимый диапазон";
-        System.out.println(res);
+//        int j = in.nextInt();
+//        String res = j % 2 != 0 ? "Нечетное" : (j < 100) ? "Четное" : "Недопустимый диапазон";
+//        System.out.println(res);
     }
 }

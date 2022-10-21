@@ -13,8 +13,14 @@ public class Study {
         this.course = course;
     }
 
-    public String printCourse() {
-        return this.course;
+    public void printCourse() {
+        System.out.println(course);
+    }
+
+    public static void main(String[] args) {
+
+        Study study = new Study("«Изучение Java - это просто!»");
+        study.printCourse();
     }
 
 }
