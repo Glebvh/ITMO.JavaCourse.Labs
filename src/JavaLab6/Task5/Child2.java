@@ -9,8 +9,10 @@ public class Child2 extends Parent {
         this.name = in.next();
     }
 
-    public void printName() {
-        System.out.println("Name: " + name);
+    public void print() {
+        getData();
+        super.getData();
+        System.out.println("Name: " + name + ", Age: " + super.age);
     }
 
 }

@@ -4,8 +4,7 @@ public class Main {
     public static void main(String[] args) {
 
         Child2 child = new Child2();
-        child.getData();
-        child.printName();
+        child.print();
 
     }
 }

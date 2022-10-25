@@ -7,31 +7,31 @@ public class Lab5Main {
         String text2 = "слова";
         String palText = "Я иду с мечем судия";
         String notPalText = "в строке нет знаков препинания";
-        String byaka = "Бяка на бяке и бякой погоняет";
-        //5.1 Написать метод для поиска самого длинного слова в тексте.
+        String byakaText = "Бяка на бяке и бякой погоняет";
+        String badWord = "бяк";
 
+        //5.1 Написать метод для поиска самого длинного слова в тексте.
 //        maxLength(text);
 
         //5.2 Написать метод, который проверяет является ли слово палиндромом.
-//        Palindrom(notPalText);
+//        palindrom(palText);
 
         //5.3 Напишите метод, заменяющий в тексте все вхождения слова «бяка» на «[вырезано цензурой]».
-//        Censor(byaka);
+        censor(byakaText, badWord);
 
         //5.4 Имеются две строки. Найти количество вхождений одной (являющейся подстрокой) в другую.
-//        Equal(text, text2);
+//        equal(text, text2);
 
         //5.5 Напишите метод, который инвертирует слова в строке. Предполагается, что в строке нет знаков препинания, и слова разделены пробелами.
         //The given string is: This is a test string
         //The string reversed word by word is: sihT si a tset gnirts
-        Invert(text);
+//        invert(text);
     }
 
     public static void maxLength(String text) {
-        String text1 = text.replace(",", "");
-        String text2 = text1.replace(".", "");
+        String text1 = text.replaceAll("\\p{P}", "");
         System.out.println(text1);
-        String[] words = text2.split(" ");
+        String[] words = text1.split(" ");
         int max = 0;
         for (int i = 0; i < words.length; i++) {
             if (words[i].length() > max) {
@@ -47,38 +47,38 @@ public class Lab5Main {
     }
 
     // 2.Написать метод, который проверяет является ли слово палиндромом.
-    public static void Palindrom(String text) {
-        String word = text.replace(" ", "");
-        char[] array = word.toCharArray();
-        String result = "";
-        for (int i = array.length - 1; i >= 0; i--) {
-            result = result + array[i];
-        }
-        System.out.println(word);
+    public static void palindrom(String text) {
+
+        text = text.replace(" ", "");
+        StringBuilder builder = new StringBuilder(text);
+        StringBuilder result = builder.reverse();
+
+        System.out.println(text);
         System.out.println(result);
 
-        if (word.equalsIgnoreCase(result)) {
+        if (text.equalsIgnoreCase(String.valueOf(result))) {
             System.out.println("It is a palindrom");
         } else {
             System.out.println("It isn't a palindrom");
         }
     }
 
-    public static void Censor(String text) {
+    public static void censor(String text, String badWord) {
+
         String[] censor = text.split(" ");
-        String result = text;
+        String result = "";
         for (int i = 0; i < censor.length; i++) {
-            if (censor[i].equalsIgnoreCase("бяка")
-                    || censor[i].equalsIgnoreCase("бяке")
-                    || censor[i].equalsIgnoreCase("бякой")
-                    || censor[i].equalsIgnoreCase("бяку")) {
-                result = result.replace(censor[i], "[вырезано цензурой]");
+            if (censor[i].toLowerCase().contains(badWord.toLowerCase())) {
+                censor[i] = censor[i].toLowerCase().replace(badWord, "[вырезано цензурой]");
             }
+            result = (result + " " + censor[i]).trim();
+            // цикл я сделал для того чтобы не приводить весь текст к нижнему регистру,
+            // если вдруг нужное слово в нем будет иметь заглавные буквы.
         }
         System.out.println(result);
     }
 
-    public static void Equal(String text, String text2) {
+    public static void equal(String text, String text2) {
         System.out.println("Исходный текст: " + text);
         System.out.println("Искомая часть: " + text2);
         int count = 0;
@@ -89,11 +89,11 @@ public class Lab5Main {
         System.out.println("Количество вхождений искомой части: " + count);
     }
 
-    public static void Invert(String text) {
-        System.out.println("The given string is: "+ text);
+    public static void invert(String text) {
+        System.out.println("The given string is: " + text);
         String[] textArray = text.split(" ");
         String newText = "";
-        for (String word: textArray){
+        for (String word : textArray) {
             char[] array = word.toCharArray();
             String wordRev = "";
             for (int i = array.length - 1; i >= 0; i--) {
