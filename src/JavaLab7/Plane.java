@@ -9,14 +9,14 @@ public class Plane {
         protected int wingWeight;
 
         public void weightPrint(int wingWeight) {
-            System.out.printf("Weight is %s", this.wingWeight);
+            System.out.printf("Weight is %s", this.wingWeight = wingWeight);
         }
     }
 
     public static void main(String[] args) {
 
         Plane.Wing wing = new Plane.Wing();
-        wing.weightPrint(100);
+        wing.weightPrint(777);
 
 
     }
