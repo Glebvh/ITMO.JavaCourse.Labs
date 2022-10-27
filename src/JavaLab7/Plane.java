@@ -9,7 +9,8 @@ public class Plane {
         protected int wingWeight;
 
         public void weightPrint(int wingWeight) {
-            System.out.printf("Weight is %s", this.wingWeight = wingWeight);
+            this.wingWeight = wingWeight;
+            System.out.printf("Weight is %s", wingWeight);
         }
     }
 
