@@ -35,13 +35,13 @@ public class Lab9Main {
         getTime(linkedList, "LinkedList");
 
         ////////Task3
-//        Map <String, Integer> map =  new HashMap<>();
-//        map.put("Igor", 10);
-//        map.put("Ivan", 15);
-//        map.put("Maria", 20);
-//
-//        User user = new User();
-//        user.getUserScore(map);
+        Map <String, Integer> map =  new HashMap<>();
+        map.put("Igor", 10);
+        map.put("Ivan", 15);
+        map.put("Maria", 20);
+
+        User user = new User();
+        user.getUserScore(map);
     }
 
     static List<Integer> deleteDoubles(List collection) {
