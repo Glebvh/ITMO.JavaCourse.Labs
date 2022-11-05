@@ -25,16 +25,16 @@ public class Lab9Main {
 
         System.out.println(newCollection);
 
-//        ////////Task 2
-//        List<Integer> emptyArrayList = new ArrayList<>();
-//        List<Integer> collectionArrayList = addToArrayList(emptyArrayList);
-////        System.out.println(collectionArrayList);
-//        getFromArrayList(collectionArrayList);
-//
-//        List<Integer> emptyLinkedList = new LinkedList<>();
-//        List<Integer> collectionLinkedList = addToLinkedList(emptyLinkedList);
-////        System.out.println(collectionLinkedList);
-//        getFromLinkedList(collectionLinkedList);
+        ////////Task 2
+        List<Integer> emptyArrayList = new ArrayList<>();
+        List<Integer> collectionArrayList = addToArrayList(emptyArrayList);
+//        System.out.println(collectionArrayList);
+        getFromArrayList(collectionArrayList);
+
+        List<Integer> emptyLinkedList = new LinkedList<>();
+        List<Integer> collectionLinkedList = addToLinkedList(emptyLinkedList);
+//        System.out.println(collectionLinkedList);
+        getFromLinkedList(collectionLinkedList);
 
         ////////Task3
         Map <String, Integer> map =  new HashMap<>();
