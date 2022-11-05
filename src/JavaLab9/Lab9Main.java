@@ -27,23 +27,21 @@ public class Lab9Main {
 
         ////////Task 2
         List<Integer> emptyArrayList = new ArrayList<>();
-        List<Integer> collectionArrayList = addToArrayList(emptyArrayList);
-//        System.out.println(collectionArrayList);
-        getFromArrayList(collectionArrayList);
+        List<Integer> arrayList = addToCollection(emptyArrayList);
+        getTime(arrayList, "ArrayList");
 
         List<Integer> emptyLinkedList = new LinkedList<>();
-        List<Integer> collectionLinkedList = addToLinkedList(emptyLinkedList);
-//        System.out.println(collectionLinkedList);
-        getFromLinkedList(collectionLinkedList);
+        List<Integer> linkedList = addToCollection(emptyLinkedList);
+        getTime(linkedList, "LinkedList");
 
         ////////Task3
-        Map <String, Integer> map =  new HashMap<>();
-        map.put("Igor", 10);
-        map.put("Ivan", 15);
-        map.put("Maria", 20);
-
-        User user = new User();
-        user.getUserScore(map);
+//        Map <String, Integer> map =  new HashMap<>();
+//        map.put("Igor", 10);
+//        map.put("Ivan", 15);
+//        map.put("Maria", 20);
+//
+//        User user = new User();
+//        user.getUserScore(map);
     }
 
     static List<Integer> deleteDoubles(List collection) {
@@ -52,48 +50,27 @@ public class Lab9Main {
         return editedToList;
     }
 
-    static List<Integer> addToArrayList(List collection) {
-        List<Integer> added = new ArrayList<>(collection);
+    static List<Integer> addToCollection(List collection) {
         for (int i = 1; i <= 1000000; i++) {
-            added.add(i);
+            collection.add(i);
         }
-        return added;
+        return collection;
     }
 
-    static void getFromArrayList(List collection) {
-        Instant startTime = Instant.now();
+    static void getFromCollection(List collection) {
         SecureRandom random = new SecureRandom();
-        List<Integer> getFromArray = new ArrayList<>();
+        List<Integer> newCollection = new ArrayList<>();
         for (int i = 0; i < 100000; i++) {
             int randomElement = (int) collection.get(random.nextInt(1000000));
-            getFromArray.add(randomElement);
+            newCollection.add(randomElement);
         }
-//        System.out.println(getFromArray);
-        Instant finishTime = Instant.now();
-        long time = Duration.between(startTime, finishTime).toMillis();
-        System.out.println("Время выполнения для ArrayList " + time + " ms");
     }
-
-    static List<Integer> addToLinkedList(List collection) {
-        List<Integer> added = new LinkedList<>(collection);
-        for (int i = 1; i <= 1000000; i++) {
-            added.add(i);
-        }
-        return added;
-    }
-
-    static void getFromLinkedList(List collection) {
+    static void getTime(List collection, String name) {
         Instant startTime = Instant.now();
-        SecureRandom random = new SecureRandom();
-        List<Integer> getFromLinked = new LinkedList<>();
-        for (int i = 0; i < 100000; i++) {
-            int randomElement = (int) collection.get(random.nextInt(1000000));
-            getFromLinked.add(randomElement);
-        }
-//        System.out.println(getFromArray);
+        getFromCollection(collection);
         Instant finishTime = Instant.now();
         long time = Duration.between(startTime, finishTime).toMillis();
-        System.out.println("Время выполнения для LinkedList " + time + " ms");
+        System.out.println("Время выполнения для " + name + ": " + time + " ms");
     }
 
 }
@@ -113,7 +90,7 @@ class User {
         this.name = name;
     }
 
-    public void getUserScore(Map<String, Integer> map){
+    public void getUserScore(Map<String, Integer> map) {
 
         Scanner in = new Scanner(System.in);
         System.out.println("Введите имя пользователя:");
