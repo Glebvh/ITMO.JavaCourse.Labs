@@ -19,9 +19,7 @@ public class Lab9Main {
 
         System.out.println(collection);
 
-        List<Integer> newCollection = deleteDoubles(collection);
-
-        deleteDoubles(collection);
+        Set<Integer> newCollection = deleteDoubles(collection);
 
         System.out.println(newCollection);
 
@@ -35,7 +33,7 @@ public class Lab9Main {
         getTime(linkedList, "LinkedList");
 
         ////////Task3
-        Map <String, Integer> map =  new HashMap<>();
+        Map<String, Integer> map = new HashMap<>();
         map.put("Igor", 10);
         map.put("Ivan", 15);
         map.put("Maria", 20);
@@ -44,28 +42,28 @@ public class Lab9Main {
         user.getUserScore(map);
     }
 
-    static List<Integer> deleteDoubles(List collection) {
+    static Set<Integer> deleteDoubles(List<Integer> collection) {
         Set<Integer> editedCollection = new HashSet<>(collection);
-        List<Integer> editedToList = new ArrayList<>(editedCollection);
-        return editedToList;
+        return editedCollection;
     }
 
-    static List<Integer> addToCollection(List collection) {
+    static List<Integer> addToCollection(List <Integer> collection) {
         for (int i = 1; i <= 1000000; i++) {
             collection.add(i);
         }
         return collection;
     }
 
-    static void getFromCollection(List collection) {
+    static void getFromCollection(List <Integer> collection) {
         SecureRandom random = new SecureRandom();
         List<Integer> newCollection = new ArrayList<>();
         for (int i = 0; i < 100000; i++) {
-            int randomElement = (int) collection.get(random.nextInt(1000000));
+            int randomElement = collection.get(random.nextInt(1000000));
             newCollection.add(randomElement);
         }
     }
-    static void getTime(List collection, String name) {
+
+    static void getTime(List <Integer> collection, String name) {
         Instant startTime = Instant.now();
         getFromCollection(collection);
         Instant finishTime = Instant.now();
