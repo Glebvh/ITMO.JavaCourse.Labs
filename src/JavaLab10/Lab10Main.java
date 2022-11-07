@@ -1,6 +1,7 @@
 package JavaLab10;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -15,7 +16,7 @@ public class Lab10Main {
 
         // 1.Написать метод, который читает текстовый файл и возвращает его в виде списка строк.
 
-//        readTextFile(file1);
+        readTextFile(file1);
 
         // 2.Написать метод, который записывает в файл строку, переданную параметром.
 
@@ -23,22 +24,22 @@ public class Lab10Main {
 
         // 3. Используя решение 1 и 2, напишите метод, который склеивает два текстовый файла один.
 
-        joinTextFiles1(file1, file2, file3);
+//        joinTextFiles1(file1, file2, file3);
 
         // 4. Написать метод который заменяет в файле все кроме букв и цифр на знак ‘$’
 
-        replaceSymbols(file1, file4);
+//        replaceSymbols(file1, file4);
 
     }
 
     public static void readTextFile(File file) {
+
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            List<String> stringList = new ArrayList<>();
             String input;
             while ((input = reader.readLine()) != null) {
-                List<String> list = Arrays.asList(input.split(" "));
-                for (String i : list) {
-                    System.out.println(i);
-                }
+                stringList.add(input);
+                System.out.println(stringList);
             }
         } catch (IOException e) {
             System.err.println(e.getMessage());
@@ -59,10 +60,8 @@ public class Lab10Main {
             String input;
             String input2;
             while ((input = reader.readLine()) != null && (input2 = reader2.readLine()) != null) {
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append(input)
-                        .append(" +++ " + input2);
-                writeTextFile(String.valueOf(stringBuilder), file3);
+                String join = input + " +++ " + input2;
+                writeTextFile(join, file3);
             }
         } catch (IOException e) {
             System.err.println(e.getMessage());

@@ -9,37 +9,39 @@ public class Lab9Main {
     public static void main(String[] args) {
 
         //////// Task 1
-        List<Integer> collection = new ArrayList<>();
-        collection.add(1);
-        collection.add(1);
-        collection.add(2);
-        collection.add(2);
-        collection.add(3);
-        collection.add(3);
-
-        System.out.println(collection);
-
-        Set<Integer> newCollection = deleteDoubles(collection);
-
-        System.out.println(newCollection);
-
-        ////////Task 2
-        List<Integer> emptyArrayList = new ArrayList<>();
-        List<Integer> arrayList = addToCollection(emptyArrayList);
-        getTime(arrayList, "ArrayList");
-
-        List<Integer> emptyLinkedList = new LinkedList<>();
-        List<Integer> linkedList = addToCollection(emptyLinkedList);
-        getTime(linkedList, "LinkedList");
+//        List<Integer> collection = new ArrayList<>();
+//        collection.add(1);
+//        collection.add(1);
+//        collection.add(2);
+//        collection.add(2);
+//        collection.add(3);
+//        collection.add(3);
+//
+//        System.out.println(collection);
+//
+//        Set<Integer> newCollection = deleteDoubles(collection);
+//
+//        System.out.println(newCollection);
+//
+//        ////////Task 2
+//        List<Integer> emptyArrayList = new ArrayList<>();
+//        List<Integer> arrayList = addToCollection(emptyArrayList);
+//        getTime(arrayList, "ArrayList");
+//
+//        List<Integer> emptyLinkedList = new LinkedList<>();
+//        List<Integer> linkedList = addToCollection(emptyLinkedList);
+//        getTime(linkedList, "LinkedList");
 
         ////////Task3
-        Map<String, Integer> map = new HashMap<>();
-        map.put("Igor", 10);
-        map.put("Ivan", 15);
-        map.put("Maria", 20);
+        Map<User, Integer> map = new HashMap<>();
+        User user1 = new User("Igor");
+        User user2 = new User("Ivan");
+        User user3 = new User("Maria");
+        map.put(user1, 10);
+        map.put(user2, 15);
+        map.put(user3, 20);
 
-        User user = new User();
-        user.getUserScore(map);
+        User.getUserScore(map);
     }
 
     static Set<Integer> deleteDoubles(List<Integer> collection) {
@@ -47,14 +49,14 @@ public class Lab9Main {
         return editedCollection;
     }
 
-    static List<Integer> addToCollection(List <Integer> collection) {
+    static List<Integer> addToCollection(List<Integer> collection) {
         for (int i = 1; i <= 1000000; i++) {
             collection.add(i);
         }
         return collection;
     }
 
-    static void getFromCollection(List <Integer> collection) {
+    static void getFromCollection(List<Integer> collection) {
         SecureRandom random = new SecureRandom();
         List<Integer> newCollection = new ArrayList<>();
         for (int i = 0; i < 100000; i++) {
@@ -63,7 +65,7 @@ public class Lab9Main {
         }
     }
 
-    static void getTime(List <Integer> collection, String name) {
+    static void getTime(List<Integer> collection, String name) {
         Instant startTime = Instant.now();
         getFromCollection(collection);
         Instant finishTime = Instant.now();
@@ -77,7 +79,10 @@ class User {
     private String name;
 
     public User() {
+    }
 
+    public User(String name) {
+        this.name = name;
     }
 
     public String getName() {
@@ -88,18 +93,17 @@ class User {
         this.name = name;
     }
 
-    public void getUserScore(Map<String, Integer> map) {
+    public static void getUserScore(Map<User, Integer> map) {
 
         Scanner in = new Scanner(System.in);
         System.out.println("Введите имя пользователя:");
-        this.name = in.next();
+        String name = in.next();
 
-        if (map.get(name) == null)
-            System.out.println("Пользователь не найден");
-        else {
-            int score = map.get(name);
-            System.out.println("Количество очков пользователя " + name + ": " + score);
+        for (Map.Entry<User, Integer> pair : map.entrySet()) {
+            if (pair.getKey().getName().equals(name)) {
+                Integer score = pair.getValue();
+                System.out.println("Количество очков пользователя " + name + ": " + score);
+            }
         }
     }
-
 }
