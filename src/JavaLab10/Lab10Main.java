@@ -81,12 +81,4 @@ public class Lab10Main {
         }
     }
 
-//    public static void joinTextFiles2(File file1, File file2, File file3) {
-//        String text1 = readTextFile(file1);
-//        String text2 = readTextFile(file2);
-//        String join = text1 +
-//                " +++ " + text2;
-//        writeTextFile(join, file3);
-//    }
-
 }
