@@ -16,7 +16,8 @@ public class Lab10Main {
 
         // 1.Написать метод, который читает текстовый файл и возвращает его в виде списка строк.
 
-        readTextFile(file1);
+        System.out.println(readFileReturnList(file1));
+        System.out.println(readFileReturnString(file1));
 
         // 2.Написать метод, который записывает в файл строку, переданную параметром.
 
@@ -24,7 +25,7 @@ public class Lab10Main {
 
         // 3. Используя решение 1 и 2, напишите метод, который склеивает два текстовый файла один.
 
-//        joinTextFiles1(file1, file2, file3);
+        joinTextFiles2(file1, file2, file3);
 
         // 4. Написать метод который заменяет в файле все кроме букв и цифр на знак ‘$’
 
@@ -32,18 +33,29 @@ public class Lab10Main {
 
     }
 
-    public static void readTextFile(File file) {
-
+    public static List<String> readFileReturnList(File file) {
+        List<String> stringList = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
-            List<String> stringList = new ArrayList<>();
             String input;
             while ((input = reader.readLine()) != null) {
                 stringList.add(input);
-                System.out.println(stringList);
             }
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
+        return stringList;
+    }
+    public static String readFileReturnString(File file) {
+        String read = null;
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            String input;
+            while ((input = reader.readLine()) != null) {
+                read = input;
+            }
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+        return read;
     }
 
     public static void writeTextFile(String string, File file) {
@@ -66,7 +78,12 @@ public class Lab10Main {
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-
+    }
+    public static void joinTextFiles2(File file1, File file2, File file3) {
+        String input = readFileReturnString(file1);
+        String input2 = readFileReturnString(file2);
+                String join = input + " +++ " + input2;
+                writeTextFile(join, file3);
     }
 
     public static void replaceSymbols(File file1, File file2) {
