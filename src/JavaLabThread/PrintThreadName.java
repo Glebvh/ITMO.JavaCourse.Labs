@@ -35,7 +35,6 @@ class NameThread extends Thread {
         this.print = print;
     }
 
-
     @Override
     public void run() {
         print.print();

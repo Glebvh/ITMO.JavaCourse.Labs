@@ -21,7 +21,7 @@ public class ThreadMain extends Thread {
         //Начать можно с написания своего класс-потока, который выводит в бесконечном цикле свое имя.
         //Потом придется добавить синхронизацию с помощью wait() и notify().
 
-        PrintThreadName.printNames();
+//        PrintThreadName.printNames();
 
 
     }
@@ -48,7 +48,6 @@ public class ThreadMain extends Thread {
 
     @Override
     public void run() {
-        // Код для задания 1 и 2
         for (int j = 1; j <= 100; j++) {
             System.out.println(j + " " + getName() + " state In: " + getState());
         }
