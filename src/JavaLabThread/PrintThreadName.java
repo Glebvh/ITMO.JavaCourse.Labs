@@ -8,7 +8,6 @@ public class PrintThreadName {
         new NameThread(print).start();
         new NameThread(print).start();
     }
-
 }
 
 class Print {

@@ -4,6 +4,10 @@ class Counter extends Thread {
     public static void main(String[] args) {
         startHundredTreads();
 
+        System.out.println("result: " + getCount());
+
+
+
     }
     static int count = 0;
 
@@ -27,7 +31,6 @@ class Counter extends Thread {
             for (int i = 1; i <= 1000; i++) {
                 Counter.increment();
             }
-            System.out.println(getCount());
         }
     }
 }
